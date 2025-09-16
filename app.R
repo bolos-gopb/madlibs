@@ -31,7 +31,7 @@ server <- function(input, output) {
   story <- eventReactive(input$submit, {
     generate_story(input$noun1, input$verb, input$adjective, input$adverb)
   })
-  cat(strep("-", 25), "\n", file = stderr())
+  cat(strrep("-", 25), "\n", file = stderr())
   cat(story)
   output$story <- renderText({
     story()
