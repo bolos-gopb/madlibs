@@ -2,6 +2,9 @@ library(shiny)
 library(useself)
 
 generate_story <- function(noun, verb, adjective, adverb) {
+  cat("Adjective: ", input$adjective, "\n")
+  cat("Noun: ", input$noun, "\n")
+  cat("Verb: ", input$verb, "\n")
   glue::glue(
     "
     Once upon a time, there was a {adjective} {noun} who loved to
@@ -31,8 +34,6 @@ server <- function(input, output) {
   story <- eventReactive(input$submit, {
     generate_story(input$noun1, input$verb, input$adjective, input$adverb)
   })
-  cat(strrep("-", 25), "\n", file = stderr())
-  cat(story)
   output$story <- renderText({
     story()
   })
