@@ -2,9 +2,9 @@ library(shiny)
 library(useself)
 
 generate_story <- function(noun, verb, adjective, adverb) {
-  cat("Adjective: ", input$adjective, "\n")
-  cat("Noun: ", input$noun, "\n")
-  cat("Verb: ", input$verb, "\n")
+  cat("Adjective: ", adjective, "\n")
+  cat("Noun: ", noun, "\n")
+  cat("Verb: ", verb, "\n")
   glue::glue(
     "
     Once upon a time, there was a {adjective} {noun} who loved to
