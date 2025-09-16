@@ -1,4 +1,5 @@
 library(shiny)
+library(useself)
 
 generate_story <- function(noun, verb, adjective, adverb) {
   glue::glue(
@@ -30,6 +31,8 @@ server <- function(input, output) {
   story <- eventReactive(input$submit, {
     generate_story(input$noun1, input$verb, input$adjective, input$adverb)
   })
+  cat(strep("-", 25), "\n", file = stderr())
+  cat(story)
   output$story <- renderText({
     story()
   })
